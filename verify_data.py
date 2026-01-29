@@ -112,8 +112,8 @@ def verify_kline_data(symbol: str = "000001"):
             else:
                 print("✓ 复权因子检查通过（全部 > 0）")
 
-            # 计算后复权价格示例
-            print("\n后复权价格计算示例（前5条）:")
+            # 计算前复权价格示例
+            print("\n前复权价格计算示例（前5条）:")
             df_sample = df.head().copy()
             df_sample['adj_close'] = df_sample['close'] * df_sample['adj_factor']
             df_sample['adj_open'] = df_sample['open'] * df_sample['adj_factor']
@@ -123,7 +123,7 @@ def verify_kline_data(symbol: str = "000001"):
 
         # 计算收益率
         print("\n" + "-" * 60)
-        print("收益率统计（基于后复权价格）")
+        print("收益率统计（基于前复权价格）")
         print("-" * 60)
 
         if 'adj_factor' in df.columns:
