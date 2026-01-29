@@ -93,8 +93,7 @@ def fetch_adj_factor(symbol: str, start_date: str, end_date: str) -> Optional[pd
     """
     @retry_on_error
     def fetch():
-        # 使用后复权日线数据来计算复权因子
-        # 获取不复权和后复权数据，计算复权因子
+        # 获取前复权和不复权数据来计算复权因子
         df_qfq = ak.stock_zh_a_hist(symbol=symbol, period="daily",
                                      start_date=start_date, end_date=end_date,
                                      adjust="qfq")  # 前复权
